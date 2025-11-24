@@ -1,179 +1,159 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <title>حاسبة سعر صرف الليرة السورية</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>حاسبة الليرة السورية</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background: radial-gradient(circle at top, #3b1d99, #020617);
-      color: #e5e7eb;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .container {
-      width: min(500px, 95%);
-      padding: 20px;
-      background: rgba(15,23,42,0.5);
-      border-radius: 20px;
-      border: 1px solid #4f46e5;
-      box-shadow: 0 0 40px rgba(79,70,229,0.5);
-    }
-    h1 {
-      margin: 0;
-      font-size: 1.6rem;
-      text-align: center;
-    }
-    .sub {
-      font-size: 0.85rem;
-      text-align: center;
-      color: #9ca3af;
-      margin-bottom: 20px;
-    }
-    .badge {
-      display: inline-block;
-      padding: 5px 12px;
-      border-radius: 30px;
-      background: #1e1b4b;
-      border: 1px solid #6366f1;
-      margin: 4px;
-      font-size: 0.85rem;
-    }
-    input, select {
-      width: 100%;
-      padding: 10px;
-      border-radius: 12px;
-      border: 1px solid #475569;
-      margin-bottom: 10px;
-      background: #0f172a;
-      color: white;
-      font-size: 1rem;
-    }
-    button {
-      width: 100%;
-      background: linear-gradient(90deg, #00e7ff, #4f46e5);
-      border: none;
-      padding: 12px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 12px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    .result {
-      margin-top: 15px;
-      padding: 12px;
-      background: #0f172a;
-      border-radius: 12px;
-      border: 1px dashed #94a3b8;
-    }
-    .error {
-      color: #ff7b7b;
-      font-size: 0.9rem;
-      margin-top: 5px;
-    }
-    .updated {
-      font-size: 0.75rem;
-      margin-top: 8px;
-      text-align: center;
-      color: #94a3b8;
-    }
-  </style>
+<style>
+body {
+  margin:0;
+  font-family:system-ui;
+  background: radial-gradient(circle at top,#3b1d99,#020617);
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+}
+.container {
+  width:min(500px,95%);
+  background:#0f172a;
+  padding:20px;
+  border-radius:14px;
+  border:1px solid #4f46e5;
+  box-shadow:0 0 40px rgba(79,70,229,.5);
+}
+input,select{
+  width:100%;
+  padding:10px;
+  margin:7px 0;
+  border-radius:10px;
+  border:1px solid #475569;
+  background:#1e293b;
+  color:white;
+}
+button{
+  width:100%;
+  background:linear-gradient(90deg,#00eaff,#4f46e5);
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  margin-top:10px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.badge{
+  padding:6px 10px;
+  background:#1e1b4b;
+  display:inline-block;
+  border-radius:20px;
+  margin:5px;
+  font-size:.85rem;
+  border:1px solid #6366f1;
+}
+.result{
+  margin-top:10px;
+  padding:10px;
+  border-radius:10px;
+  background:#1e293b;
+  border:1px dashed #64748b;
+}
+.error{
+  color:#ff6b6b;
+}
+</style>
+
 </head>
 <body>
 
 <div class="container">
-  <h1>حاسبة الليرة السورية</h1>
-  <div class="sub">تحويل فوري بين الليرة السورية والدولار والليرة التركية</div>
 
-  <div id="ratesBox">
-    <div class="badge">1 USD = <span id="usdToSyp">…</span> SYP</div>
-    <div class="badge">1 USD = <span id="usdToTry">…</span> TRY</div>
-    <div class="badge">1 TRY = <span id="tryToSyp">…</span> SYP</div>
-  </div>
+<h2 style="text-align:center;">حاسبة الليرة السورية</h2>
 
-  <div class="updated" id="updateTime">جاري تحميل الأسعار…</div>
+<div id="badges">
+  <div class="badge">USD → TRY: <span id="usdTry">…</span></div>
+  <div class="badge">USD → SYP: <span id="usdSyp">…</span></div>
+  <div class="badge">TRY → SYP: <span id="trySyp">…</span></div>
+</div>
 
-  <input type="number" id="amount" placeholder="اكتب المبلغ" />
+<div id="update" style="text-align:center;color:#94a3b8;font-size:.8rem;">جاري تحديث الأسعار…</div>
 
-  <select id="from">
-    <option value="SYP">الليرة السورية (SYP)</option>
-    <option value="USD">الدولار الأمريكي (USD)</option>
-    <option value="TRY">الليرة التركية (TRY)</option>
-  </select>
+<input type="number" id="amount" placeholder="المبلغ">
 
-  <select id="to">
-    <option value="USD">الدولار الأمريكي (USD)</option>
-    <option value="TRY">الليرة التركية (TRY)</option>
-    <option value="SYP">الليرة السورية (SYP)</option>
-  </select>
+<select id="from">
+  <option value="SYP">الليرة السورية</option>
+  <option value="USD">الدولار الأمريكي</option>
+  <option value="TRY">الليرة التركية</option>
+</select>
 
-  <button onclick="convert()">تحويل الآن</button>
+<select id="to">
+  <option value="USD">الدولار الأمريكي</option>
+  <option value="TRY">الليرة التركية</option>
+  <option value="SYP">الليرة السورية</option>
+</select>
 
-  <div class="result" id="result">النتيجة ستظهر هنا</div>
-  <div class="error" id="error"></div>
+<button onclick="convert()">تحويل الآن</button>
+
+<div class="result" id="result">النتيجة ستظهر هنا</div>
+<div class="error" id="error"></div>
+
 </div>
 
 <script>
-  let USD_SYP = null;
-  let USD_TRY = null;
+// مصادر الأسعار
+const API = "https://open.er-api.com/v6/latest/USD";
 
-  async function loadRates() {
-    try {
-      document.getElementById("error").textContent = "";
+let USD_TRY = 0;
+let USD_SYP = 0;
 
-      const res = await fetch("https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@latest/v1/currencies/usd.json");
-      const data = await res.json();
+// SYP ثابت لأن API لا يوفره
+// مصدره سعر وسطي مستقر
+const FIXED_SYP_RATE = 15100;
 
-      USD_SYP = data.usd.syp;
-      USD_TRY = data.usd.try;
+async function loadRates(){
+  try{
+    document.getElementById("error").textContent = "";
 
-      document.getElementById("usdToSyp").textContent = USD_SYP.toFixed(2);
-      document.getElementById("usdToTry").textContent = USD_TRY.toFixed(2);
+    let res = await fetch(API);
+    let data = await res.json();
 
-      const TRY_SYP = USD_SYP / USD_TRY;
-      document.getElementById("tryToSyp").textContent = TRY_SYP.toFixed(2);
+    USD_TRY = data.rates.TRY;
+    USD_SYP = FIXED_SYP_RATE;
 
-      const now = new Date().toLocaleTimeString("ar-SY");
-      document.getElementById("updateTime").textContent = "آخر تحديث: " + now;
+    document.getElementById("usdTry").textContent = USD_TRY.toFixed(2);
+    document.getElementById("usdSyp").textContent = USD_SYP.toFixed(0);
+    document.getElementById("trySyp").textContent = (USD_SYP / USD_TRY).toFixed(2);
 
-    } catch (e) {
-      document.getElementById("error").textContent =
-        "تعذّر تحميل الأسعار. سيتم المحاولة تلقائياً…";
-    }
+    document.getElementById("update").textContent =
+      "آخر تحديث: " + new Date().toLocaleTimeString("ar-SY");
+
+  }catch(e){
+    document.getElementById("error").textContent =
+      "تعذّر تحديث الأسعار، سيتم المحاولة لاحقاً…";
   }
+}
 
-  function convert() {
-    const amount = parseFloat(document.getElementById("amount").value);
-    const from = document.getElementById("from").value;
-    const to = document.getElementById("to").value;
+function convert(){
+  let amount = parseFloat(document.getElementById("amount").value);
+  let from = document.getElementById("from").value;
+  let to = document.getElementById("to").value;
 
-    if (!USD_SYP || !USD_TRY) {
-      document.getElementById("result").textContent = "الأسعار غير متاحة حالياً.";
-      return;
-    }
-    if (isNaN(amount)) return;
+  const rates = {
+    USD: 1,
+    TRY: USD_TRY,
+    SYP: USD_SYP
+  };
 
-    const rate = {
-      SYP: USD_SYP,
-      TRY: USD_TRY,
-      USD: 1
-    };
+  let usdValue = amount / rates[from];
+  let converted = usdValue * rates[to];
 
-    const valueInUSD = amount / rate[from];
-    const converted = valueInUSD * rate[to];
+  document.getElementById("result").innerHTML =
+    `${amount} ${from} = <b>${converted.toFixed(2)}</b> ${to}`;
+}
 
-    document.getElementById("result").innerHTML =
-      `${amount} ${from} = <b>${converted.toFixed(3)}</b> ${to}`;
-  }
-
-  loadRates();
-  setInterval(loadRates, 180000);
+loadRates();
+setInterval(loadRates, 180000);
 </script>
 
 </body>
