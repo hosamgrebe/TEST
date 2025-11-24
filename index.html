@@ -8,7 +8,7 @@
 <style>
 body {
   margin:0;
-  font-family:system-ui;
+  font-family: "Cairo", sans-serif;
   background: radial-gradient(circle at top,#3b1d99,#020617);
   color:white;
   display:flex;
@@ -24,10 +24,18 @@ body {
   border:1px solid #4f46e5;
   box-shadow:0 0 40px rgba(79,70,229,.5);
 }
+h2 {
+  text-align:center;
+  margin:0 0 10px 0;
+}
+label {
+  margin:7px 0 5px;
+  display:block;
+}
 input,select{
   width:100%;
   padding:10px;
-  margin:7px 0;
+  margin-bottom:10px;
   border-radius:10px;
   border:1px solid #475569;
   background:#1e293b;
@@ -61,6 +69,14 @@ button{
 }
 .error{
   color:#ff6b6b;
+  text-align:center;
+  margin-top:5px;
+}
+.footer {
+  text-align:center;
+  margin-top:20px;
+  font-size:.8rem;
+  color:#a3bffa;
 }
 </style>
 
@@ -69,24 +85,27 @@ button{
 
 <div class="container">
 
-<h2 style="text-align:center;">حاسبة الليرة السورية</h2>
+<h2>💰 حاسبة سعر صرف الليرة السورية</h2>
 
 <div id="badges">
-  <div class="badge">USD → TRY: <span id="usdTry">…</span></div>
-  <div class="badge">USD → SYP: <span id="usdSyp">…</span></div>
-  <div class="badge">TRY → SYP: <span id="trySyp">…</span></div>
+  <div class="badge">دولار → تركي: <span id="usdTry">…</span></div>
+  <div class="badge">دولار → سوري: <span id="usdSyp">…</span></div>
+  <div class="badge">تركي → سوري: <span id="trySyp">…</span></div>
 </div>
 
 <div id="update" style="text-align:center;color:#94a3b8;font-size:.8rem;">جاري تحديث الأسعار…</div>
 
-<input type="number" id="amount" placeholder="المبلغ">
+<label>المبلغ</label>
+<input type="number" id="amount" placeholder="أدخل المبلغ">
 
+<label>من عملة</label>
 <select id="from">
   <option value="SYP">الليرة السورية</option>
   <option value="USD">الدولار الأمريكي</option>
   <option value="TRY">الليرة التركية</option>
 </select>
 
+<label>إلى عملة</label>
 <select id="to">
   <option value="USD">الدولار الأمريكي</option>
   <option value="TRY">الليرة التركية</option>
@@ -98,18 +117,18 @@ button{
 <div class="result" id="result">النتيجة ستظهر هنا</div>
 <div class="error" id="error"></div>
 
+<div class="footer">تصميم: حسام غريبي</div>
+
 </div>
 
 <script>
-// مصادر الأسعار
 const API = "https://open.er-api.com/v6/latest/USD";
 
 let USD_TRY = 0;
 let USD_SYP = 0;
 
-// SYP ثابت لأن API لا يوفره
-// مصدره سعر وسطي مستقر
-const FIXED_SYP_RATE = 15100;
+// سعر الليرة السورية (يرجى توفير API للسوق الحقيقي)
+const FIXED_SYP_RATE = 15100; // مؤقت
 
 async function loadRates(){
   try{
