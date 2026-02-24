@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الشيخ محمود الچبن الجارالله</title>
+    <title>الشيخ محمود الچبن الجار الله</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -20,15 +20,18 @@
             --font-main: 'Cairo', sans-serif;
         }
 
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
             font-family: var(--font-main);
@@ -37,11 +40,13 @@
             overflow-x: hidden;
         }
 
+
         .container {
             max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
+
 
         /* Hero Section */
         .hero {
@@ -53,6 +58,7 @@
             overflow: hidden;
         }
 
+
         .hero::before {
             content: '';
             position: absolute;
@@ -63,6 +69,7 @@
             background: radial-gradient(circle at 50% 30%, rgba(199, 162, 76, 0.1), transparent 60%);
             pointer-events: none;
         }
+
 
         .profile-frame {
             width: 180px;
@@ -77,9 +84,11 @@
             transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
+
         .profile-frame:hover {
             transform: scale(1.08) rotate(3deg);
         }
+
 
         .profile-img {
             width: 100%;
@@ -89,6 +98,7 @@
             border: 3px solid var(--navy);
         }
 
+
         .decor-lines {
             display: flex;
             align-items: center;
@@ -97,11 +107,13 @@
             margin: 20px 0;
         }
 
+
         .decor-line {
             width: 60px;
             height: 1px;
             background: rgba(255,255,255,0.3);
         }
+
 
         .decor-dot {
             width: 8px;
@@ -110,12 +122,14 @@
             border-radius: 50%;
         }
 
+
         .hero h1 {
             font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 900;
             margin-bottom: 10px;
             letter-spacing: 1px;
         }
+
 
         .hero .subtitle {
             color: var(--gold);
@@ -124,12 +138,14 @@
             margin-bottom: 30px;
         }
 
+
         .social-icons {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-bottom: 40px;
         }
+
 
         .social-icon {
             width: 50px;
@@ -143,15 +159,18 @@
             transition: all 0.3s ease;
         }
 
+
         .social-icon:hover {
             background: rgba(255,255,255,0.1);
             border-color: var(--gold);
             transform: translateY(-3px);
         }
 
+
         .social-icon:hover svg {
             fill: var(--gold);
         }
+
 
         .social-icon svg {
             width: 24px;
@@ -159,6 +178,7 @@
             fill: var(--white);
             transition: fill 0.3s ease;
         }
+
 
         /* WhatsApp Specific Hover */
         .social-icon.whatsapp:hover {
@@ -168,6 +188,7 @@
         .social-icon.whatsapp:hover svg {
             fill: #25D366;
         }
+
 
         /* Wave Separator */
         .wave-separator {
@@ -182,11 +203,13 @@
             transform: translateY(50%);
         }
 
+
         /* Section Base */
         section {
             padding: 80px 0;
             position: relative;
         }
+
 
         .section-title-small {
             color: var(--gold);
@@ -198,6 +221,7 @@
             letter-spacing: 2px;
         }
 
+
         .section-title-large {
             font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 900;
@@ -206,10 +230,12 @@
             color: var(--text-dark);
         }
 
+
         /* About Section */
         .about {
             background: var(--bg-light);
         }
+
 
         .quote-container {
             max-width: 800px;
@@ -219,6 +245,7 @@
             padding: 40px 20px;
         }
 
+
         .quote-decor {
             position: absolute;
             font-size: 5rem;
@@ -226,8 +253,10 @@
             font-family: serif;
         }
 
+
         .quote-decor.top-left { top: 0; right: 0; }
         .quote-decor.bottom-right { bottom: 0; left: 0; }
+
 
         .quote-text {
             font-size: clamp(1.5rem, 3vw, 2.2rem);
@@ -237,12 +266,14 @@
             margin-bottom: 30px;
         }
 
+
         /* Gallery Section */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 25px;
         }
+
 
         .gallery-card {
             border-radius: 20px;
@@ -259,9 +290,11 @@
             transform: translateX(0);
         }
 
+
         .gallery-card:hover {
             transform: translateY(-5px);
         }
+
 
         .gallery-card img {
             width: 100%;
@@ -270,10 +303,12 @@
             transition: transform 0.5s ease, filter 0.3s ease;
         }
 
+
         .gallery-card:hover img {
             transform: scale(1.1);
             filter: brightness(1.1);
         }
+
 
         /* Videos Section */
         .videos-grid {
@@ -281,6 +316,7 @@
             flex-direction: column;
             gap: 30px;
         }
+
 
         .video-card {
             position: relative;
@@ -299,6 +335,7 @@
             transform: translateX(0);
         }
 
+
         /* تنسيق الفيديو ليملأ الكادر بالكامل */
         .video-bg {
             position: absolute;
@@ -309,6 +346,7 @@
             object-fit: cover; /* مهم جداً ليغطي الفيديو الكادر بدون تشويه */
             display: block;
         }
+
 
         .video-overlay {
             position: absolute;
@@ -332,6 +370,7 @@
             pointer-events: none;
         }
 
+
         .play-btn {
             width: 80px;
             height: 80px;
@@ -347,10 +386,12 @@
             transition: all 0.3s ease;
         }
 
+
         .play-btn:hover {
             background: rgba(255,255,255,0.3);
             transform: scale(1.1);
         }
+
 
         .play-triangle {
             width: 0;
@@ -361,10 +402,12 @@
             margin-right: 5px;
         }
 
+
         .video-title {
             font-size: 1.5rem;
             font-weight: 700;
         }
+
 
         /* Articles Section */
         .articles-list {
@@ -372,6 +415,7 @@
             flex-direction: column;
             gap: 25px;
         }
+
 
         .article-card {
             background: var(--white);
@@ -390,10 +434,12 @@
             transform: translateX(0);
         }
 
+
         .article-card:hover {
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transform: translateY(-3px);
         }
+
 
         .article-date-wrapper {
             display: flex;
@@ -403,17 +449,20 @@
             justify-content: flex-end;
         }
 
+
         .date-line {
             width: 2px;
             height: 20px;
             background: var(--gold);
         }
 
+
         .article-date {
             color: var(--gold);
             font-weight: 700;
             font-size: 0.9rem;
         }
+
 
         .article-title {
             font-size: 1.4rem;
@@ -422,10 +471,12 @@
             margin-bottom: 10px;
         }
 
+
         .article-excerpt {
             color: var(--text-gray);
             line-height: 1.6;
         }
+
 
         /* Footer */
         footer {
@@ -436,10 +487,12 @@
             border-top: 1px solid rgba(0,0,0,0.05);
         }
 
+
         .footer-content {
             max-width: 600px;
             margin: 0 auto;
         }
+
 
         .footer-social {
             display: flex;
@@ -448,17 +501,21 @@
             margin-bottom: 30px;
         }
 
+
         .footer-social .social-icon {
             border-color: rgba(0,0,0,0.2);
         }
+
 
         .footer-social .social-icon svg {
             fill: var(--text-dark);
         }
 
+
         .footer-social .social-icon:hover {
             background: rgba(0,0,0,0.05);
         }
+
 
         .footer-text {
             font-size: 1.1rem;
@@ -484,6 +541,7 @@
             text-decoration: underline;
         }
 
+
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
@@ -504,15 +562,18 @@
             z-index: 1000;
         }
 
+
         .back-to-top.visible {
             opacity: 1;
             visibility: visible;
         }
 
+
         .back-to-top:hover {
             background: var(--gold-dark);
             transform: translateY(-3px);
         }
+
 
         .back-to-top svg {
             width: 24px;
@@ -521,12 +582,14 @@
             transform: rotate(0deg);
         }
 
+
         /* Scroll Animations */
         .fade-in-up {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
+
 
         .fade-in-up.is-visible {
             opacity: 1;
@@ -544,6 +607,7 @@
             transform: translateX(0);
         }
 
+
         /* Keyframe Animations */
         @keyframes wave-animation {
             0% { transform: translateY(50%) rotate(0deg); }
@@ -551,9 +615,11 @@
             100% { transform: translateY(50%) rotate(0deg); }
         }
 
+
         .wave-separator {
             animation: wave-animation 5s infinite linear;
         }
+
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -561,9 +627,11 @@
                 grid-template-columns: 1fr;
             }
 
+
             .hero h1 {
                 font-size: 2rem;
             }
+
 
             section {
                 padding: 60px 0;
@@ -576,6 +644,7 @@
     </style>
 </head>
 <body>
+
 
     <!-- Hero Section -->
     <div class="hero">
@@ -590,7 +659,7 @@
                 <div class="decor-line"></div>
             </div>
             
-            <h1 class="fade-in-up" style="transition-delay: 0.2s;">الشيخ محمود الجين الجارالله</h1>
+            <h1 class="fade-in-up" style="transition-delay: 0.2s;">الشيخ محمود الچبن الجار الله</h1>
             <p class="subtitle fade-in-up" style="transition-delay: 0.3s;">وجه من وجهاء عشيرة العكيدات</p>
             
             <div class="social-icons fade-in-up" style="transition-delay: 0.4s;">
@@ -603,6 +672,14 @@
                 <a href="https://x.com/auqduwypwsurhsd?s=11&t=g2HN1ExkO3-cyHwr5KSxTQ" target="_blank" class="social-icon">
                     <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
+
+                <!-- Telegram Icon (Added) -->
+                <a href="https://t.me/princeG0" target="_blank" class="social-icon telegram" aria-label="Telegram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M9.993 15.674 9.78 19.5c.432 0 .62-.185.846-.408l2.03-1.943 4.206 3.08c.771.426 1.323.202 1.515-.714l2.744-12.91.001-.001c.226-1.051-.38-1.463-1.13-1.184L1.98 9.187C.956 9.587.97 10.17 1.803 10.43l5.117 1.596 11.89-7.5c.56-.342 1.072-.153.652.189L9.993 15.674z"/>
+                    </svg>
+                </a>
+
                 <a href="https://wa.me/963986244244?text=مرحبا" target="_blank" class="social-icon whatsapp">
                     <svg viewBox="0 0 24 24">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -612,6 +689,7 @@
         </div>
         <div class="wave-separator"></div>
     </div>
+
 
     <!-- About Section -->
     <section class="about" id="about">
@@ -626,12 +704,14 @@
                     <div class="decor-line"></div>
                 </div>
 
+
                 <p class="quote-text fade-in-up">
                     الصواعق لا تضرب سوى<br>
                     قمم الجبال الشامخة<br>
                     أما المنحدرات فلا تذهب<br>
                     إليها إلا المياه الراكدة
                 </p>
+
 
                 <div class="decor-lines fade-in-up">
                     <div class="decor-line"></div>
@@ -641,6 +721,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Gallery Section -->
     <section class="gallery" id="gallery">
@@ -658,6 +739,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Videos Section -->
     <section class="videos" id="videos">
@@ -681,6 +763,7 @@
                     </div>
                 </div>
 
+
                 <!-- الفيديو الثاني -->
                 <div class="video-card slide-in-left" id="video-card-2">
                     <!-- ⚠️ غير src لاسم ملفك الحقيقي -->
@@ -695,6 +778,7 @@
                         <div class="video-title">كلمة في مؤتمر</div>
                     </div>
                 </div>
+
 
                 <!-- الفيديو الثالث -->
                 <div class="video-card slide-in-left" id="video-card-3">
@@ -713,6 +797,7 @@
             </div>
         </div>
     </section>
+
 
     <!-- Articles Section -->
     <section class="articles" id="articles">
@@ -760,6 +845,7 @@
         </div>
     </section>
 
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -774,6 +860,14 @@
                     <a href="https://x.com/auqduwypwsurhsd?s=11&t=g2HN1ExkO3-cyHwr5KSxTQ" target="_blank" class="social-icon">
                         <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     </a>
+
+                    <!-- Telegram Icon (Added) -->
+                    <a href="https://t.me/princeG0" target="_blank" class="social-icon telegram" aria-label="Telegram">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M9.993 15.674 9.78 19.5c.432 0 .62-.185.846-.408l2.03-1.943 4.206 3.08c.771.426 1.323.202 1.515-.714l2.744-12.91.001-.001c.226-1.051-.38-1.463-1.13-1.184L1.98 9.187C.956 9.587.97 10.17 1.803 10.43l5.117 1.596 11.89-7.5c.56-.342 1.072-.153.652.189L9.993 15.674z"/>
+                        </svg>
+                    </a>
+
                     <a href="https://wa.me/963986244244?text=مرحبا" target="_blank" class="social-icon whatsapp">
                         <svg viewBox="0 0 24 24">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -783,6 +877,7 @@
                 
                 <p class="footer-text">تواصل معنا عبر وسائل التواصل الاجتماعي</p>
             </div>
+
 
             <!-- Copyright Section (White Background) -->
             <div class="footer-copyright" style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
@@ -796,12 +891,14 @@
         </div>
     </footer>
 
+
     <!-- Back to Top Button -->
     <div class="back-to-top" id="backToTop">
         <svg viewBox="0 0 24 24">
             <path d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"/>
         </svg>
     </div>
+
 
     <script>
         // Smooth scroll for anchor links
@@ -818,6 +915,7 @@
             });
         });
 
+
         // Back to Top functionality
         const backToTopBtn = document.getElementById('backToTop');
         
@@ -829,12 +927,14 @@
             }
         });
 
+
         backToTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             });
         });
+
 
         // Form submission prevention (demo)
         document.querySelectorAll('form').forEach(form => {
@@ -848,11 +948,13 @@
             });
         });
 
+
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
+
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -863,9 +965,11 @@
             });
         }, observerOptions);
 
+
         document.querySelectorAll('.fade-in-up, .slide-in-left').forEach(el => {
             observer.observe(el);
         });
+
 
         // 🔥 VIDEO PLAYBACK LOGIC (NEW) 🔥
         document.querySelectorAll('.video-card').forEach(card => {
@@ -873,7 +977,9 @@
             const playBtn = card.querySelector('.play-btn');
             const overlay = card.querySelector('.video-overlay');
 
+
             if (!video || !playBtn || !overlay) return;
+
 
             // 1. تشغيل الفيديو عند الضغط على زر التشغيل
             playBtn.addEventListener('click', (e) => {
@@ -888,6 +994,7 @@
                 card.classList.add('playing');
             });
 
+
             // 2. تشغيل/إيقاف الفيديو عند الضغط على الكادر نفسه (خارج زر التشغيل)
             card.addEventListener('click', () => {
                 if (video.paused) {
@@ -898,10 +1005,12 @@
                 }
             });
 
+
             // 3. عند انتهاء الفيديو، إعادة الغلاف
             video.addEventListener('ended', () => {
                 card.classList.remove('playing');
             });
+
 
             // 4. عند إيقاف الفيديو يدوياً من المتحكمات، إعادة الغلاف
             video.addEventListener('pause', () => {
